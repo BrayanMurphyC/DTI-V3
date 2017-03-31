@@ -5,7 +5,17 @@ class RegistroEventosController < ApplicationController
   before_action :set_event, only: [:create, :new, :index]
 
   def index
+
     @registro_eventos = RegistroEvento.where(["event_id = ?", @event])
+    respond_to do |format|
+      format.html
+      format.json
+      # format.pdf { render template: 'registro_eventos/reporte_asistentes', pdf:'reporte_asistentes'}
+      format.pdf do
+              render template: 'registro_eventos/reporte_asistentes', pdf: 'Reporte del evento..', layout: "pdf.html"
+            end
+    end
+
   end
 
   def show

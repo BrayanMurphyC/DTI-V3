@@ -26,4 +26,7 @@
                         #certificado= best_in_place registro_evento, :certificado, :as => :checkbox, collection: {'false' => " No ", 'true' => "Si"}, :classes => 'name-edit'
                       %span
                         %i.icon.icon-user
-                        #asistencia= best_in_place registro_evento, :certificado, :as => :checkbox, collection: {'false' => "No", 'true' => "Si"}
+                        #asistencia= best_in_place registro_evento, :asistencia, :as => :checkbox, collection: {'false' => "No", 'true' => "Si"}
+
+= link_to 'PDF', registro_eventos_path(@event.id, :format => :pdf)
+-#  = link_to "Get PDF", your_path(format: :pdf)

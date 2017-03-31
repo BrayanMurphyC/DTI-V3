@@ -47,7 +47,9 @@ gem 'best_in_place', git: 'git://github.com/bernat/best_in_place.git', branch: '
 #graficos:
  gem 'chartkick'
  gem 'groupdate'
-
+#pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 
 

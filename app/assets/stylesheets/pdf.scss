@@ -1,0 +1,29 @@
+h1{
+color: #1FAD9F !important;
+font-family: 'Open Sans Condensed', sans-serif !important;
+text-justify: center;
+text-align: center;
+font-weight: bold !important;
+}
+
+tr{
+border-bottom: solid;
+border-width: .5px;
+text-align: center !important;
+font-family: 'Open Sans Condensed', sans-serif;
+}
+
+td,th{
+  text-align: left;
+}
+th{
+  background-color: #1FAD9F;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+
+}
+table, tr, td, th, tbody, thead, tfoot{
+page-break-inside: avoid !important;
+text-transform: uppercase;
+}
