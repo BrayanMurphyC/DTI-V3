@@ -1,0 +1,50 @@
+%p#notice= notice
+%h1 Encuesta
+%table
+  %thead
+    %tr
+      %th Pregunta1
+      %th Pregunta2
+      %th Pregunta3
+      %th Pregunta4
+      %th Pregunta5
+      %th Pregunta6
+      %th Pregunta7
+      %th Pregunta8
+      %th Pregunta9
+      %th Pregunta10
+      %th Pregunta11
+      %th Pregunta12
+      %th Pregunta13
+      %th Recomendaciones
+      %th Temas
+      %th Comentarios
+      %th{:colspan => "3"}
+  %tbody
+    - @encuesta.each do |encuestum|
+      %tr
+        %td= encuestum.q1
+        %td= encuestum.q2
+        %td= encuestum.q3
+        %td= encuestum.q4
+        %td= encuestum.q5
+        %td= encuestum.q6
+        %td= encuestum.q7
+        %td= encuestum.q8
+        %td= encuestum.q9
+        %td= encuestum.q10
+        %td= encuestum.q11
+        %td= encuestum.q12
+        %td= encuestum.q13
+        %td= encuestum.recomendaciones
+        %td= encuestum.temas
+        %td= encuestum.comentarios
+        %td= link_to 'Show', encuestum
+        %td= link_to 'Edit', edit_encuestum_path(encuestum)
+        %td= link_to 'Destroy', encuestum, method: :delete, data: { confirm: 'Are you sure?' }
+        -# = area_chart({"PREGUNTA 1" => encuestum.q1, "PREGUNTA 2" => encuestum.q2, "PREGUNTA 3" => encuestum.q3,"PREGUNTA 4" => encuestum.q4, "PREGUNTA 5" => encuestum.q5, "PREGUNTA 6" => encuestum.q6, "PREGUNTA 7" => encuestum.q7} , donut: false)
+        %br
+        = bar_chart Encuestum.group(:q1).sum(:q1)
+        -# = line_chart  Encuestum.group(:q1).group_by_week(:created_at).count, label: "Value"
+    = link_to 'Nueva encuesta', new_encuestum_path
+    MUESTRA: #{Encuestum.count}

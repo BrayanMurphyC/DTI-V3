@@ -1,0 +1,110 @@
+= form_for @encuestum do |f|
+  - if @encuestum.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@encuestum.errors.count, "error")} prohibited this encuestum from being saved:"
+      %ul
+        - @encuestum.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :q1 , "Grado percibido de dominio del tema"
+    / <haml_loud> f.select :q1, options_for_select([["Malo", "1"], ["Regular", "2"]]) </haml_loud>
+    = f.radio_button :q1, "1"
+    = f.radio_button :q1, "2"
+    = f.radio_button :q1, "3"
+    = f.radio_button :q1, "4"
+    = f.radio_button :q1, "5"
+  .field
+    = f.label :q2, "Claridad en la transmisión de los conocimientos"
+    = f.radio_button :q2, "1"
+    = f.radio_button :q2, "2"
+    = f.radio_button :q2, "3"
+    = f.radio_button :q2, "4"
+    = f.radio_button :q2, "5"
+  .field
+    = f.label :q3,"Fomento a la participación de los asistentes"
+    = f.radio_button :q3, "1"
+    = f.radio_button :q3, "2"
+    = f.radio_button :q3, "3"
+    = f.radio_button :q3, "4"
+    = f.radio_button :q3, "5"
+  .field
+    = f.label :q4, "Recomendaría este y otros eventos a otras personas"
+    = f.radio_button :q4, "1"
+    = f.radio_button :q4, "2"
+    = f.radio_button :q4, "3"
+    = f.radio_button :q4, "4"
+    = f.radio_button :q4, "5"
+  .field
+    = f.label :q5, "Los expositores dominan los temas tratados."
+    = f.radio_button :q5, "1"
+    = f.radio_button :q5, "2"
+    = f.radio_button :q5, "3"
+    = f.radio_button :q5, "4"
+    = f.radio_button :q5, "5"
+  .field
+    = f.label :q6, "Los expositores tienen dominio de grupo."
+    = f.radio_button :q6, "1"
+    = f.radio_button :q6, "2"
+    = f.radio_button :q6, "3"
+    = f.radio_button :q6, "4"
+    = f.radio_button :q6, "5"
+  .field
+    = f.label :q7, "Los expositores estimulan la participación e intercambio de ideas y experiencias."
+    = f.radio_button :q7, "1"
+    = f.radio_button :q7, "2"
+    = f.radio_button :q7, "3"
+    = f.radio_button :q7, "4"
+    = f.radio_button :q7, "5"
+  .field
+    = f.label :q8, "Los materiales que recibió fueron acertados y suficientes."
+    = f.radio_button :q8, "1"
+    = f.radio_button :q8, "2"
+    = f.radio_button :q8, "3"
+    = f.radio_button :q8, "4"
+    = f.radio_button :q8, "5"
+  .field
+    = f.label :q9, "Las presentaciones fueron claras y fáciles de seguir."
+    = f.radio_button :q9, "1"
+    = f.radio_button :q9, "2"
+    = f.radio_button :q9, "3"
+    = f.radio_button :q9, "4"
+    = f.radio_button :q9, "5"
+  .field
+    = f.label :q10, "Extensión y detalle de la documentación recibida"
+    = f.radio_button :q10, "1"
+    = f.radio_button :q10, "2"
+    = f.radio_button :q10, "3"
+    = f.radio_button :q10, "4"
+    = f.radio_button :q10, "5"
+  .field
+    = f.label :q11, "La organización del seminario y el soporte logístico fueron apropiados."
+    = f.radio_button :q11, "1"
+    = f.radio_button :q11, "2"
+    = f.radio_button :q11, "3"
+    = f.radio_button :q11, "4"
+    = f.radio_button :q11, "5"
+  .field
+    = f.label :q12, "La duración del seminario fue adecuada."
+    = f.radio_button :q12, "1"
+    = f.radio_button :q12, "2"
+    = f.radio_button :q12, "3"
+    = f.radio_button :q12, "4"
+    = f.radio_button :q12, "5"
+  .field
+    = f.label :q13,"La sesión se cumplió en el horario dispuesto."
+    = f.radio_button :q13, "1"
+    = f.radio_button :q13, "2"
+    = f.radio_button :q13, "3"
+    = f.radio_button :q13, "4"
+    = f.radio_button :q13, "5"
+    = f.label :recomendaciones, "¿Qué recomendaciones sugiere para el mejoramiento con respecto a este y los próximos eventos?"
+    = f.text_area :recomendaciones
+  .field
+    = f.label :temas, "¿Qué otros temas recomendaría o desea que se amplíen?"
+    = f.text_area :temas
+  .field
+    = f.label :comentarios , "Comentarios"
+    = f.text_area :comentarios
+  .actions
+    = f.submit 'Save'

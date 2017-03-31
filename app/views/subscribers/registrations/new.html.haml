@@ -1,0 +1,28 @@
+=notice
+.sign-in-subscriber.signup-bg-color
+  .sign-in-subscriber-wrap
+    %img(src="/assets/signup.jpg" width="100%")
+    %h2 Bienvenido a la Dirección de Transferencia e Innovación !
+    %small Ingrese su informacion para formar parte de nuestro equipo.
+    .fields-content
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :dni, required: true, label: false,placeholder:"Número de DNI"
+          = f.input :nombres, required: true,label: false,placeholder:"Nombres y Apellidos"
+          = f.input :email, required: true, autofocus: true, label: false,placeholder:"Correo Electrónico"
+          = f.input :password, required: true, label: false,placeholder:"Contraseña", input_html: { id: 'contraseña'}
+          = f.input :password_confirmation, required: true, label: false,placeholder:"Confirmar Contraseña"
+          .check_box_content
+            .checkboxActivo
+              = f.check_box :activo, id: "activo"
+              %label(for="activo")
+            %p Deseo recibir mensajes de los eventos y publicaciones.
+
+          .check_box_content
+            .checkboxActivo
+              %input(type = "checkbox" id= "activo2" checked = true)
+              %label(for="activo2")
+            = link_to "Acepto los términos y condiciones"
+        .form-actions
+          = f.button :submit, "Registrarse", id: "registrar_subs"
